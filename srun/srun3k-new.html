@@ -19,8 +19,13 @@
 	</script>
 
 </head>
-
+<!-- 
+	!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	!!警告：除非您知道您要做什么，否则请不要更改下面的部分！！！否则会造成无法使用的问题!!! 
+	!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+-->
 <body>
+	
 	<div class="container">
 		<p class="title">河南工业大学</p>
 		<div class="box">
@@ -425,13 +430,13 @@ data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANIAAAA9CAYAAADYizcVAAAABHNCSVQICA
 	}
 	
 
-	function FixSelfService(){ //由于官方在未登录按自服务会产生AuthInfoError，顾用此临时替代
-		//同样官方在登录时-打开自服务-注销-再登录也会产生此bug，因此放弃官方自动自服务登录
-		$("pre").css("background","#1aad18");
-		$("#statusbar").text("正在打开自服务...成功！")
-		window.open("http://172.16.154.130:8800");
-	}
-
+	// function FixSelfService(){ //由于官方在未登录按自服务会产生AuthInfoError，顾用此临时替代
+	// 	//同样官方在登录时-打开自服务-注销-再登录也会产生此bug，因此放弃官方自动自服务登录
+	// 	$("pre").css("background","#1aad18");
+	// 	$("#statusbar").text("正在打开自服务...成功！")
+	// 	window.open("http://172.16.154.130:8800");
+	// }
+	//fixed
 	function selfService(){
 			$("#statusbar").text("正在打开自服务...")
 			$("pre").css("background","#3498db");
@@ -451,18 +456,18 @@ data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANIAAAA9CAYAAADYizcVAAAABHNCSVQICA
         	if (data != "") {
         		window.open("http://172.16.154.130:8800/site/sso?data="+data);
 				$("pre").css("background","#1aad18");
-				$("#statusbar").text("正在打开自服务...")
+				$("#statusbar").text("正在打开自服务...成功！")
         		return;
         	}
 			$("pre").css("background","#1aad18");
-			$("#statusbar").text("正在打开自服务...")
+			$("#statusbar").text("正在打开自服务...成功！")
         	window.open("http://172.16.154.130:8800");
 			return;
 		}
 		}	
 		window.open("http://172.16.154.130:8800");
 		$("pre").css("background","#1aad18");
-		$("#statusbar").text("正在打开自服务...")
+		$("#statusbar").text("正在打开自服务...成功！")
 	}
 	
 	function username_encrypt(username) {
@@ -529,7 +534,7 @@ data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANIAAAA9CAYAAADYizcVAAAABHNCSVQICA
 					if(!FuckMicrosoft()) 
 					{
 						if(IsSave==true&&CheckLocalStorage==false) {
-							//原来不存在信息并且勾选保
+							//原来不存在信息并且勾选保存
 							if(!window.localStorage) {
 								$("#statusbar").text("登陆成功，但您的浏览器不支持存储登录信息！");
 								$("pre").css("background", "#ffcd43");
